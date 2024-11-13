@@ -5,19 +5,26 @@
 #include "struct.h"
 char buffer[1000];
 #define MAX_STUDENTS 100
+#include <stdio.h>
+
 void manu_detail()
 {
-    printf("1.菜单详细\n");
-    printf("2.增加学生信息\n");
-    printf("3.查询学生信息\n");
-    printf("4.删除学生信息\n");
-    printf("5.修改学生信息\n");
-    printf("6.读取文件\n");
-    printf("7.显示所有学生信息(按照姓名排序)\n");
-    printf("8.显示所有学生信息(按照学号排序)\n");
-    printf("9.学科详情（按照分数排序）\n");
-    printf("10.退出系统\n");
-    printf("请输入选项对应的数字：");
+    printf("\n\n");
+    printf("***********************************************************\n");
+    printf("*                      学生信息管理系统                   *\n");
+    printf("***********************************************************\n");
+    printf("**********************系统功能菜单**************************\n");
+    printf("--------------------------     ----------------------------\n");
+    printf("**********************************************************\n");
+    printf("*     1、菜单详细              *      2、增加学生信息      *\n");
+    printf("*     3、查询学生信息          *      4、删除学生信息      *\n");
+    printf("*     5、修改学生信息          *      6、展示学生信息      *\n");
+    printf("**********************************************************\n");
+    printf("*     7、排序学生信息(姓名)    *      8、排序学生信息(学号)*\n");
+    printf("*     9、排序学生信息(分数)    *      10、退出系统         *\n");
+    printf("***********************************************************\n");
+    printf("--------------------------     ----------------------------\n");
+    printf("*********************请输入您的选择(1-10)*******************\n");
 }
 
 void bubble_sort_by_math_score(FILE *file, struct List_student **head)
@@ -320,36 +327,42 @@ void modify_student(FILE * file, struct List_student * *head)
                 switch(choice)
                 {
                     case 1:
+                        printf("now name is %s\n", p->name);
                         printf("Enter new student name:");
                         scanf("%s", name);
                         strcpy(p->name, name);
                         printf("student name has been modified\n");
                         break;
                     case 2:
+                        printf("now class is %d\n", p->class_num);
                         printf("Enter new student class:");
                         scanf("%d", &class);
                         p->class_num = class;
                         printf("student class has been modified\n");
                         break;
                     case 3:
+                        printf("now age is %d\n", p->age);
                         printf("Enter new student age:");
                         scanf("%d", &age);
                         p->age = age;
                         printf("student age has been modified\n");
                         break;
                     case 4:
+                        printf("now math_score is %.2f\n", p->math_score);
                         printf("Enter new student math_score:");
                         scanf("%f", &math_score);
                         p->math_score = math_score;
                         printf("student math_score has been modified\n");
                         break;
                     case 5:
+                        printf("now english_score is %.2f\n", p->english_score);
                         printf("Enter new student english_score:");
                         scanf("%f", &english_score);
                         p->english_score = english_score;
                         printf("student english_score has been modified\n");
                         break;
                     case 6:
+                        printf("now clanguage_score is %.2f\n", p->clanguage_score);
                         printf("Enter new student clanguage_score:");
                         scanf("%f", &clanguage_score);
                         p->clanguage_score = clanguage_score;
