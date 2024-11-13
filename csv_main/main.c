@@ -1,4 +1,3 @@
-// 这是用于实现的主函数
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -6,7 +5,6 @@
 #include "struct.h"      //结构体的定义实现
 
 #define MAX_LINE_LENGTH 1024
-#define MAX_FIELDS 100
 #define BUFFER_SIZE 1024
 #define MAX_STUDENTS 100
 
@@ -20,6 +18,8 @@ int main()
         perror("打开文件失败");
         return EXIT_FAILURE;
     }
+    struct List_student *head = NULL;
+    create_List_student(file, &head);
     printf("1.菜单详细\n");
     printf("2.增加学生信息\n");
     printf("3.查询学生信息\n");
@@ -31,6 +31,8 @@ int main()
     printf("9.学科详情（按照分数排序）\n");
     printf("10.退出系统\n");
     printf("请输入选项对应的数字：");
+
+
     int choice;
     while (scanf("%d", &choice) == 1)
     {
@@ -51,62 +53,33 @@ int main()
             file = fopen("data.csv", "a");
             add_student(file);
             fclose(file);
+            file = fopen("data.csv", "r+");
             break;
         case 3:
-            search_student(file);
+            search_student(file, head);
             break;
         case 4:
-            //delete_student(file);
+            fclose(file);
+            file = fopen("data.csv", "w");
+            delete_student(file,&head);
             break;
         case 5:
-            modify_student(file);
+            modify_student(file, &head);
+            break;
+        case 6:
+            read_file(file, head);
+            break;
+        case 7:
+            sort_by_name(file, &head);
+            break;
+        case 8:
+            sort_by_id(file, &head);
+            break;
+        case 9:
+            sort_by_subject(file, &head);
             break;
         }
     }
-
-    // while (scanf("%d", &choice) == 1)
-    // {
-    //     if (choice == 10)
-    //         printf("退出系统\n");
-    //     break;
-
-    //     switch (choice)
-    //     {
-    //     case 1:
-    //         manu_detail();
-    //         break;
-    //     case 2:
-    //     {
-    //         add_student(file);
-    //         fclose(file);
-    //         break;
-    //     }
-    //     // case 3:
-    //     //     search_student(file);
-    //     //     break;
-    //     // case 4:
-    //     //     delete_student(file);
-    //     //     break;
-    //     // case 5:
-    //     //     modify_student(file);
-    //     //     break;
-    //     // case 6:
-    //     //     read_file(file);
-    //     //     break;
-    //     // case 7:
-    //     //     sort_by_name(file);
-    //     //     break;
-    //     // case 8:
-    //     //     sort_by_id(file);
-    //     //     break;
-    //     // case 9:
-    //     //     sort_by_subject(file);
-    //     //     break;
-    //     default:
-    //         printf("无效的选择\n");
-    //         break;
-    //     }
-    //     printf("请输入选项对应的数字：");
-    // }
+    fclose(file);
     return 0;
 }
