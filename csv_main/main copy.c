@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "manu_detail.c" //具体的函数实现
+#include "manu_detail copy.c" //具体的函数实现
 #include "struct.h"      //结构体的定义实现
 
 #define MAX_LINE_LENGTH 1024
@@ -43,11 +43,11 @@ int main()
         switch (choice)
         {
         case 10:
-            printf("exit system\n");
+            printf("退出系统\n");
             fclose(file);
             return EXIT_SUCCESS;
         default:
-            printf("invalid choice\n");
+            printf("无效的选择\n");
             break;
         case 1:
             manu_detail();
