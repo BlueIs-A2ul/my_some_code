@@ -14,8 +14,9 @@ int main()
     // fprintf(file, "id,name,class,age,math,english,clanguage\n");
 
     if (file == NULL)
-    {
+    {   
         perror("打开文件失败");
+        printf("请尝试创建一个有效文件data.csv");
         return EXIT_FAILURE;
     }
     struct List_student *head = NULL;

@@ -247,6 +247,7 @@ void search_student(FILE *file, struct List_student *head)
         {
             printf("学号\t\t姓名\t\t班级\t\t年龄\t\t数学\t\t英语\t\tc语言\n");
             printf("%d\t\t%s\t\t%d\t\t%d\t\t%.2f\t\t%.2f\t\t%.2f\n", p->id, p->name, p->class_num, p->age, p->math_score, p->english_score, p->clanguage_score);
+            printf("输入1呼出菜单，输入10退出系统\n");
             return;
         }
         p = p->next;
