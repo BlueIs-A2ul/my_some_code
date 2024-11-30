@@ -4,6 +4,8 @@
 #include <algorithm>
 #include <fstream>
 #include <sstream>
+#include <iomanip>
+#include <string.h>
 using namespace std;
 struct account
 {
@@ -13,7 +15,7 @@ struct account
 };
 
 vector<account> accounts;
-void bubble_sort(vector<account> &accounts);
+
 void read_file(string filename)
 { // 读取文件，将每行数据存入account结构体中，存入vector中
     ifstream file(filename);
@@ -36,7 +38,7 @@ void read_file(string filename)
 void sort_accounts_time()
 { // 按时间排序
     sort(accounts.begin(), accounts.end(), [](account a, account b)
-         { return a.time < b.time; });
+         { return stof(a.time) < stof(b.time); });
 }
 
 void sort_accounts_money()
@@ -47,20 +49,25 @@ void sort_accounts_money()
 
 void sort_sum_money_by_class()
 { // 按分类和金额排序
-    int class_num = 0;
-    cout << "Enter the number of classes: ";
-    cin >> class_num;
+    char cclass[100];
+    cout << "请输入分类: ";
+
+    cin >> cclass;
     float sum = 0;
+    cout << accounts.size() << endl;
     for (int i = 0; i < accounts.size(); i++)
     {
-        sum += stof(accounts[i].money);
+        if (strcmp(accounts[i].cclass, cclass) == 0)
+        {
+            sum += stof(accounts[i].money);
+        }
     }
-    cout << "The sum of money is " << sum << endl;
+    cout << cclass << "对应总金额为: " << sum << endl;
 }
 
 void print_accounts()
 {
-    printf("\ttime \t\tmoney \t\tclass\n");
+    printf("\t时间 \t\t金额 \t\t类\n");
     for (auto acc : accounts)
     {
         printf("\t%s \t\t%s \t\t%s\n", acc.time, acc.money, acc.cclass);
@@ -88,22 +95,41 @@ void sum_money(account acc)
     {
         sum += stof(accounts[i].money);
     }
-    std::cout << "The sum of money in  is " << sum << endl;
+    cout << "\t";
+    std::cout << "金额总数是 " << sum << endl;
 }
 int main()
 {
     string filename = "date.csv";
     read_file(filename);
     int choice;
-    cout << "1. Read file" << endl;
-    cout << "2. Sort accounts by time" << endl;
-    cout << "3. Sort accounts by money" << endl;
-    cout << "4. Sort accounts by class and money" << endl;
-    cout << "5. Print accounts" << endl;
-    cout << "6. Add account" << endl;
-    cout << "7. Exit" << endl;
+    std::cout << std::left;
+    std::cout << std::setw(3) << " "
+              << std::setw(20) << "功能选项"
+              << std::setw(30) << "描述" << std::endl;
+    std::cout << "-------------------------------------------------------------" << std::endl;
+    std::cout << std::setw(3) << "2."
+              << std::setw(17) << "\t按时间前后排序"
+              << std::setw(30) << "" << std::endl;
+    std::cout << std::setw(3) << "3."
+              << std::setw(17) << "\t按金额大小排序"
+              << std::setw(30) << "" << std::endl;
+    std::cout << std::setw(3) << "4."
+              << std::setw(17) << "\t查询某一类总和"
+              << std::setw(30) << "" << std::endl;
+    std::cout << std::setw(3) << "5."
+              << std::setw(17) << "\t打印账户信息"
+              << std::setw(30) << "" << std::endl;
+    std::cout << std::setw(3) << "6."
+              << std::setw(17) << "\t添加消费记录"
+              << std::setw(30) << "" << std::endl;
+    std::cout << std::setw(3) << "7."
+              << std::setw(17) << "\t退出系统"
+              << std::setw(30) << "" << std::endl;
+    std::cout << "-------------------------------------------------------------" << std::endl;
+    std::cout << "请输入功能选项: ";
     cin >> choice;
-    while (choice != 4)
+    while (choice != 199)
     {
         switch (choice)
         {
@@ -114,7 +140,7 @@ int main()
             break;
         }
         case 2:
-            bubble_sort(accounts);
+            sort_accounts_time();
             print_accounts();
             break;
         case 3:
@@ -123,7 +149,6 @@ int main()
             break;
         case 4:
             sort_sum_money_by_class();
-            print_accounts();
             break;
         case 5:
             print_accounts();
@@ -155,30 +180,33 @@ int main()
             cout << "Invalid choice" << endl;
             break;
         }
-        cout << "1. Read file" << endl;
-        cout << "2. Sort accounts by time" << endl;
-        cout << "3. Sort accounts by money" << endl;
-        cout << "4. Sort accounts by class and money" << endl;
-        cout << "5. Print accounts" << endl;
-        cout << "6. Add account" << endl;
-        cout << "7. Exit" << endl;
+        std::cout << std::left;
+        std::cout << std::setw(3) << " "
+                  << std::setw(20) << "功能选项"
+                  << std::setw(30) << "描述" << std::endl;
+        std::cout << "-------------------------------------------------------------" << std::endl;
+        std::cout << std::setw(3) << "2."
+                  << std::setw(17) << "\t按时间前后排序"
+                  << std::setw(30) << "" << std::endl;
+        std::cout << std::setw(3) << "3."
+                  << std::setw(17) << "\t按金额大小排序"
+                  << std::setw(30) << "" << std::endl;
+        std::cout << std::setw(3) << "4."
+                  << std::setw(17) << "\t查询某一类总和"
+                  << std::setw(30) << "" << std::endl;
+        std::cout << std::setw(3) << "5."
+                  << std::setw(17) << "\t打印账户信息"
+                  << std::setw(30) << "" << std::endl;
+        std::cout << std::setw(3) << "6."
+                  << std::setw(17) << "\t添加消费记录"
+                  << std::setw(30) << "" << std::endl;
+        std::cout << std::setw(3) << "7."
+                  << std::setw(17) << "\t退出系统"
+                  << std::setw(30) << "" << std::endl;
+        std::cout << "-------------------------------------------------------------" << std::endl;
+        std::cout << "请输入功能选项: ";
         cin >> choice;
     }
 
     return 0;
-}
-
-void bubble_sort(vector<account> &accounts)
-{ // 冒泡排序
-    int n = accounts.size();
-    for (int i = 0; i < n - 1; i++)
-    {
-        for (int j = 0; j < n - i - 1; j++)
-        {
-            if (accounts[j].time > accounts[j + 1].time)
-            {
-                swap(accounts[j], accounts[j + 1]);
-            }
-        }
-    }
 }
