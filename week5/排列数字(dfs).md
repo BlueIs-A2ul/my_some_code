@@ -72,7 +72,7 @@ void dfs(int u){
             path[u]=i;
             st[i]=true;
             dfs(u+1);//迭代到下一层
-
+			//完成某一支的递归
             st[i]=false;
             path[u]=0;//实际可以不写
         }

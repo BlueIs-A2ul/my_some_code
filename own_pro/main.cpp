@@ -12,6 +12,17 @@ struct account
     char time[100];   // 时间
     char money[100];  // 金额
     char cclass[100]; // 分类
+    // cclass主要是这几个：
+    // 1.food：食品
+    // 2.clothing：衣服
+    // 3.trans：交通
+    // 4.entertainment：娱乐
+    // 5.shopping：购物
+    // 6.naicha；奶茶
+    // 7.wash：洗衣
+    // 8.idol：偶像
+    // 9.vip：会员
+    // 10.other：其他
 };
 
 vector<account> accounts;
@@ -54,7 +65,6 @@ void sort_sum_money_by_class()
 
     cin >> cclass;
     float sum = 0;
-    cout << accounts.size() << endl;
     for (int i = 0; i < accounts.size(); i++)
     {
         if (strcmp(accounts[i].cclass, cclass) == 0)
@@ -62,7 +72,7 @@ void sort_sum_money_by_class()
             sum += stof(accounts[i].money);
         }
     }
-    cout << cclass << "对应总金额为: " << sum << endl;
+    cout << "对应总金额为: " << sum << endl;
 }
 
 void print_accounts()
@@ -88,6 +98,9 @@ void add_account(account acc)
     accounts.push_back(acc);
 }
 
+void delete_account(account acc)
+{ // 从vector中删除account结构体
+}
 void sum_money(account acc)
 {
     float sum = 0;
@@ -157,19 +170,21 @@ int main()
         case 6:
         {
             int num;
-            cout << "Enter the number of accounts to add: ";
+            cout << "请输入要添加的记录数量: ";
             cin >> num;
             for (int i = 0; i < num; i++)
             {
                 account acc;
-                cout << "Enter time: ";
+                cout << "输入时间：";
                 cin >> acc.time;
-                cout << "Enter money: ";
+                cout << "输入金额：";
                 cin >> acc.money;
-                cout << "Enter cclass: ";
+                cout << "输入分类：";
                 cin >> acc.cclass;
                 add_account(acc);
+                cout << endl;
             }
+            // 循环完成再写入文件
             write_file("date.csv");
             break;
         }
@@ -177,7 +192,7 @@ int main()
             return 0;
             break;
         default:
-            cout << "Invalid choice" << endl;
+            cout << "无效的选项" << endl;
             break;
         }
         std::cout << std::left;
