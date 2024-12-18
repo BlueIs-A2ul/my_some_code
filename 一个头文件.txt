@@ -1,0 +1,19 @@
+```cpp
+#include <bits/stdc++.h>
+#define int long long
+#define Ir(i, a, b) for (int i = a; i < b; i++)
+#define Ip(i, a, b) for (int i = a; i <= b; i++)
+#define F(a, ch) for (auto a : ch)
+#define DG(x) cout << #x << " = " << x << endl;
+
+#define MAXN 100005
+using namespace std;
+
+
+signed main() {
+
+    return 0;
+}
+
+```
+
