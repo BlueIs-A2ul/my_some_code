@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 网页的头部 -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <meta name="description" content="网页的描述">
+    <meta name="keywords" content="网页的关键字">
+    <!-- title标签用于设置网页的标题 -->
+    <!-- meta标签用于设置网页的描述和关键字，
+      keywords用于设置网页的关键字，
+      description用于设置网页的描述。 -->
+</head>
+
+<!-- 网页的主体 -->
+
+<body>
+    <header>
+        <h2>这是测试语句</h2>
+    </header>
+    <aside>
+        <p>这是侧边栏</p>
+    </aside>
+    <h1> 以下是html的基本语法 </h1>
+    <h2>
+        <hr>
+    </h2>
+    <a name="top"></a>
+    <a href="#bottom">去到底部</a>
+    <h2>这是p的效果</h2>
+
+    <!-- 这是粗体效果 -->
+    <strong>
+        <p>颤音不是来自树木或禽鸟，</p>
+    </strong>
+    <p>而是来自时间和他模糊的日子</p>
+
+    <hr>
+    <!-- 这是一个水平线 -->
+
+    <h2> 这是br的效果 </h2>
+
+    <!-- 这是斜体效果-->
+    <em>
+        <p>并非如此。我不会像懦夫那样<br />
+    </em>
+    否认我拙笔所赞美的一切</p>
+    <hr>
+    <p> br是换行标签，在p标签中使用，更加紧凑<br>
+        p是直接分段，行间距更大</p>
+
+    <h3> 一些特殊符号 </h3>
+    <p> 空格：&nbsp;空格</p>
+    <p> 大于：&gt; </p>
+    <p> 小于：&lt; </p>
+    <hr><br>
+
+    <h2> 图像标签 </h2>
+    <!-- src 作为标签是必填的 
+    alt 作为标签是可选的 
+    title 作为标签是可选的 
+    width 作为标签是可选的 
+    height 作为标签是可选的 
+    后面两个控制图片的大小
+    -->
+    <img src="../ht_css_js/res/test.jpg" alt="一个图像" title="实例图像" width="200" height="150">
+
+    <h2> 链接标签 </h2>
+    <!-- href 作为标签是必填的 -->
+    <!-- target 可以控制新页面打开方式-->
+    <!-- _blank 控制在新页面打开 -->
+    <!-- _self 控制在当前页面打开 -->
+    <a href="https://www.baidu.com" target="_blank">百度</a><br>
+    <a herf="http://127.0.0.1:3000/ht_css_js/test.html">自指的一个链接
+        <img src="../ht_css_js/res/test.jpg" alt="一个图像" title="点一下玩一年" width="200" height="150">
+    </a><br>
+
+
+    <!-- 锚链接-->
+    <a href="#top">回到顶部</a>
+    <a name="bottom"></a><br>
+    <br>
+    <!-- 不仅如此，锚链接还可以实现不同网页之间的锚的跳转-->
+
+    <!-- 功能性链接 -->
+    <a style="color:blueviolet" href="mailto:1738348581@qq.com"> 免费牛马点击联系</a>
+
+    <h2> 列表标签 </h2>
+
+    <h3> 无序列表 </h3>
+    <hr>
+    <!--unordered list-->
+    <ul>
+        <li>苹果</li>
+        <li>香蕉</li>
+        <li>橘子</li>
+    </ul>
+
+    <h3> 有序列表 </h3>
+    <hr>
+    <!--ordered list-->
+    <ol>
+        <li>第一项</li>
+        <li>第二项</li>
+        <li>第三项</li>
+    </ol>
+
+    <h3> 定义列表 </h3>
+    <hr>
+    <!--definition list-->
+    <dl>
+        <!--definition term-->
+        <dt>test</dt>
+
+        <dd>linux</dd>
+        <dd>vue</dd>
+        <dd>vim</dd>
+    </dl>
+
+    <h2> 表格标签 </h2>
+    <!-- table标签用于创建表格 -->
+    <!-- caption标签用于设置表格的标题 -->
+    <!-- th标签用于设置表格的表头 -->
+    <!-- tr表格的行  -->
+    <!-- td标签用于设置表格的单元格 -->
+    <hr>
+    <table border="1px">
+        <caption>表格标题</caption>
+        <tr>
+            <!-- colspan用于合并单元格 -->
+            <!-- rowspan用于合并行 -->
+            <td colspan="2">1-1</td>
+            <td rowspan="2">1-3&nbsp;</td>
+            <td>duo</td>
+        </tr>
+        <tr>
+            <td>2-1</td>
+            <td>2-2</td>
+            <td>2-3</td>
+        </tr>
+    </table>
+
+    <h2>媒体元素</h2>
+    <!-- controls用于控制视频的播放控制栏 -->
+    <!-- autoplay用于自动播放视频 -->
+    <p style="color: hsl(184, 42%, 43%);"> 只是一个测试视频，我不是凯子</p>
+    <video src="../ht_css_js/res/vide.mp4" controls autoplay width="320" height="240"></video>
+    <br>
+    <audio src="../ht_css_js/res/music.mp3" controls autoplay></audio>
+
+    <h2></h2>
+    <footer>
+        <p>这是页脚</p>
+    </footer>
+
+</body>
+
+</html>
