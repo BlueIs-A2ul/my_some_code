@@ -1,0 +1,121 @@
+.nav {
+  overflow: hidden;
+  /* 不这么干会导致下面盒子高度收到字体大小影响 */
+}
+
+.sk {
+  position: absolute;
+  left: 190px;
+  top: 40px;
+  border-left: 1px solid #c81523;
+  padding: 3px 0 0 14px;
+}
+
+.sk_list ul li {
+  float: left;
+}
+
+.sk_list ul li a {
+  display: block;
+  line-height: 47px;
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: 700px;
+  color: #000;
+}
+
+.sk_con ul li {
+  float: left;
+  display: block;
+  line-height: 49px;
+  padding: 0 20px;
+  font-size: 14px;
+  color: #000;
+}
+
+.sk_con ul li:last-child a::after {
+  font-family: 'icomoon';
+  content: '\e91e';
+}
+
+.sk_bd ul li {
+  float: left;
+  overflow: hidden;
+  width: 290px;
+  height: 470px;
+  margin-left: 13px;
+  border: 1px solid transparent;
+}
+
+.sk_bd ul li:nth-child(4n) {
+  margin-left: 0px
+}
+
+.sk_bd ul li:hover {
+  border: 1px solid #c81523;
+}
+
+.goods img {
+  height: 300px;
+}
+
+.review {
+  margin: 10px 5px;
+  line-height: 20px;
+  font-size: 14px;
+}
+
+.pri {
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+.pri_now {
+  font-size: 20px;
+  color: #e5000e;
+  font-weight: 800;
+}
+
+.pri_y {
+  text-decoration: line-through;
+  color: #ccc;
+}
+
+.seal_pri {
+  line-height: 15px;
+  margin: 0 10px;
+}
+
+.seal_nex {
+  line-height: 15px;
+}
+
+.bar {
+  width: 150px;
+  height: 15px;
+  border: 1px solid #ac4141;
+  border-radius: 7px;
+  padding: 1px;
+  margin: 0 auto;
+  margin-right: 10px;
+}
+
+.bar_in {
+  height: 100%;
+  width: 87%;
+  border-radius: 7px;
+  background-color: #e5000e;
+}
+
+.buy {
+  font-size: 16px;
+  text-align: center;
+  line-height: 50px;
+  margin-top: 10px;
+  height: 50px;
+  background-color: #c81623;
+}
+
+.buy a {
+  color: #ffffff;
+}
