@@ -1,0 +1,52 @@
+.w {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+[data-theme="dark"] .wh_text {
+  color: white;
+}
+
+.w {
+  position: relative;
+  background: url(../img/main_1.jpg) no-repeat center;
+  width: 100%;
+  height: 1200px;
+}
+
+.w .container {
+  display: flex;
+  position: absolute;
+  width: 840px;
+  height: 300px;
+
+  /* 盒子居中处理 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* 文字居中处理 */
+  justify-content: center;
+  align-items: center;
+}
+
+.w .container p {
+  font-size: 24px;
+
+  color: #ffffff;
+}
+
+.w .accent {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

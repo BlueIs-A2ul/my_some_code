@@ -1,0 +1,64 @@
+body {
+  background-color: #f3f5fa;
+}
+
+.box {
+  height: 1300px;
+}
+
+.web {
+  width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  /* 设置最小高度为视口高度 */
+}
+
+.card {
+  width: 500px;
+  height: 300px;
+}
+
+.bl_text {
+  color: #000;
+}
+
+/* base.css 或 common.css */
+[data-theme="light"] .box {
+  background-color: #f3f5fa;
+}
+
+[data-theme="light"] .box h2,
+[data-theme="light"] .box p {
+  color: #000;
+}
+
+[data-theme="dark"] h2,
+p {
+  color: #fff;
+}
+
+[data-theme="dark"] .box {
+  background-color: black;
+}
+
+.list ul li {
+  float: left;
+  overflow: hidden;
+  width: 500px;
+  height: 300px;
+  margin-right: 150px;
+  margin-top: 20px;
+  border-radius: 15px;
+}
+
+[data-theme="dark"] .list ul li {
+  border: 1px solid #fcfcfc;
+}
+
+[data-theme="light"] .list ul li {
+  border: 1px solid #e5e5e5;
+}
+
+.list ul li:nth-child(2n) {
+  margin-right: 0;
+}

@@ -1,0 +1,18 @@
+[data-theme="dark"] .col {
+  background-color: #2e3033;
+}
+
+[data-theme="dark"] body,
+[data-theme="dark"] .content {
+  background-color: #1d232a;
+}
+
+[data-theme="dark"] .content hr,
+[data-theme="dark"] .content h2,
+[data-theme="dark"] .content p {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .w {
+  filter: brightness(0.8);
+}

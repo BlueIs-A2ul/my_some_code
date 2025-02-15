@@ -1,0 +1,187 @@
+body {
+  background-color: #f5f5fb
+}
+
+.row {
+  margin: 20px 0
+}
+
+.container {
+  float: left;
+  margin-left: 150px;
+  margin-right: 50px;
+}
+
+.container .submenu {
+  width: 225px;
+  border-bottom: 1px dashed #ccc;
+  text-align: center;
+}
+
+.container .submenu h2 {
+  color: #000000;
+  font-size: 20px;
+}
+
+.container .menu {
+  background-color: aliceblue;
+}
+
+.container .activ {
+  background-color: #14bbfd37;
+  color: #000000;
+}
+
+.middle-column {
+  float: left;
+  background-color: #f5f5fb;
+  width: 70%;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.middle-column .flex {
+  background-color: #fbfbfb;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.middle-column .flex .btn {
+  background-color: #fbfbfb;
+}
+
+.middle-column .join {
+  width: 200px;
+  text-align: center;
+}
+
+.content {
+  padding: 20px;
+  background-color: #fafcfd;
+}
+
+.content hr {
+  margin: 15px 5px;
+  color: #d4d4d4;
+}
+
+.content p {
+  font-size: 16px;
+  color: #000;
+}
+
+.content h1 {
+  display: block;
+  font-weight: 700;
+  font-size: 30px;
+  color: #000000;
+}
+
+.content h1 span {
+  color: #14bbfd;
+}
+
+.content .intro {
+  font-size: 15px;
+}
+
+.content h2 {
+  font-weight: 600;
+  font-size: 24px;
+  color: #000000;
+}
+
+.content .code-block {
+  border: 1px solid #d4d4d4;
+  background-color: #e6efcd;
+  padding: 10px;
+}
+
+.code-block .text {
+  color: #61a5b4;
+  font-size: 18px;
+}
+
+.code-block .code {
+  margin-top: 10px;
+  padding: 10px 10px;
+  border: 1px solid #d4d4d4;
+  background-color: #fff;
+}
+
+.code-block .code .文档 {
+  color: #008080;
+}
+
+.code-block .code .方法 {
+  color: #0055aa;
+}
+
+.code-block .code .语句 {
+  color: #aa1165;
+}
+
+.code-block .havetry {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 16px;
+  width: 130px;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  font-weight: 600;
+  background-color: #8ac007;
+}
+
+.content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+}
+
+.content .tips {
+  color: #000;
+  font-size: 16px;
+  padding: 20px;
+  border: 1px solid #d4d4d4;
+}
+
+.custom-table {
+  font-size: 18px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.custom-table col:nth-child(1) {
+  width: 170px;
+}
+
+.custom-table col:nth-child(2) {
+  width: 450px;
+}
+
+.custom-table col:nth-child(3) {
+  width: 780px;
+}
+
+.custom-table thead tr {
+  background-color: #555555;
+  color: white;
+}
+
+.custom-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: #f6f4f0;
+}
+
+.custom-table td,
+.custom-table th {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.footer {
+  margin-top: 30px;
+}
