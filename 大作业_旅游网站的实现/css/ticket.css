@@ -1,0 +1,206 @@
+/* title-bg通栏样式 */
+.title-bg {
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  height: 300px;
+}
+
+.title-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* filter: blur(2px); */
+  background: url(../img/ticket_bg1.jpg) no-repeat;
+  background-size: 120% auto;
+  background-position: center 30%;
+}
+
+.titlebox {
+  color: rgb(255, 255, 255);
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.titlebox h2 {
+  font-size: 45px;
+  font-weight: 800;
+}
+
+.titlebox h6 {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.w {
+  width: 1246px;
+  min-height: 980px;
+  margin: 30px auto;
+}
+
+.content {
+  float: left;
+  width: 920px;
+  height: 600px;
+}
+
+.sidebar {
+  width: 300px;
+  float: right;
+  padding-bottom: 10px;
+}
+
+.ticket-booking h3 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: var(--text-primary);
+  padding-bottom: 10px;
+  border-bottom: 1px solid #787878;
+}
+
+.type-row {
+  display: flex;
+  align-items: end;
+  font-size: 18px;
+  width: 400px;
+}
+
+.type-label {
+  display: inline-block;
+  width: 90px;
+  height: 35px;
+  line-height: 35px;
+}
+
+.btn_type {
+  text-align: center;
+  display: inline-block;
+  width: 50px;
+  height: 35px;
+  line-height: 35px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.btn_type:hover {
+  cursor: pointer;
+}
+
+.btn_active {
+  color: #fff;
+  background-color: #458b00;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+/* 外层容器 */
+.booking-form {
+  width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+/* 表单项 */
+.booking-form-item {
+  width: 400px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  background-color: var(--border-color);
+  padding: 5px;
+  border-radius: 4px;
+}
+
+/* 表单项内的标签 */
+.booking-form-item>span {
+  width: 80px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+/* 输入框样式 */
+.booking-form-item input {
+  flex: 1;
+  /* 输入框占据剩余空间 */
+  height: 35px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0 5px;
+}
+
+/* 立即预订按钮 */
+.book-now {
+  width: 100%;
+  /* 占满宽度 */
+  margin-top: 10px;
+  text-align: right;
+  /* 按钮右对齐 */
+}
+
+.book-now {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.book-now:hover {
+  background-color: #ff6600;
+}
+
+.custom-table {
+  font-size: 18px;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.custom-table col {
+  width: 200px;
+}
+
+.custom-table col:nth-child(1) {
+  width: 170px;
+}
+
+.custom-table col:last-child {
+  width: 100px;
+}
+
+.custom-table thead tr {
+  background-color: #555555;
+  color: white;
+}
+
+.custom-table tbody tr:nth-child(odd) {
+  background-color: var(--col-bg-odd-color);
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: var(--col-bg-even-color);
+}
+
+.custom-table td,
+.custom-table th {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.custom-table .btn {
+  color: #fff;
+  background-color: #ff6600;
+}

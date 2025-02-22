@@ -1,0 +1,75 @@
+/* 浅色主题（默认） */
+:root[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --text-primary: #333333;
+  --bg-secondary: #f5f5f5;
+  --infos-bg: #f2f2f2;
+  --border-color: #e0e0e0;
+  --card-bg: #ffffff;
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --nav-bg: #f8f9fa;
+  --footer-bg: #f8f9fa;
+  --menu-text: #333333;
+  --carousel-bg: #ffffff;
+  --icon-filter: invert(0%);
+  --col-bg-even-color: #f6f4f0;
+  --col-bg-odd-color: #ffffff;
+  --item-bg: #f4f4f4;
+  /* 原色 */
+}
+
+/* 深色主题 */
+:root[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --text-primary: #ffffff;
+  --bg-secondary: #2d2d2d;
+  --border-color: #404040;
+  --infos-bg: #2d2d2d;
+  --card-bg: #2d2d2d;
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --nav-bg: #2d2d2d;
+  --footer-bg: #2d2d2d;
+  --menu-text: #ffffff;
+  --carousel-bg: #000000;
+  --icon-filter: invert(100%);
+  --col-bg-even-color: #2d2d2d;
+  --col-bg-odd-color: #404040;
+  --item-bg: #333333;
+}
+
+/* 应用主题变量 */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.navbar {
+  background-color: var(--nav-bg) !important;
+}
+
+.card {
+  background-color: var(--card-bg) !important;
+  box-shadow: var(--card-shadow);
+}
+
+.footer {
+  background-color: var(--footer-bg) !important;
+}
+
+/* 添加导航菜单和轮播图的主题样式 */
+
+.menu-horizontal li a,
+.w_hot_title {
+  color: var(--menu-text) !important;
+}
+
+.w_carousel {
+  background-color: var(--carousel-bg) !important;
+}
+
+/* 平滑过渡效果 */
+* {
+  transition: background-color 0.3s ease,
+    color 0.05s ease,
+    border-color 0.1s ease;
+}

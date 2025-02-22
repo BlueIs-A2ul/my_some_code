@@ -1,0 +1,67 @@
+.about-container {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  overflow: hidden;
+  /* 清除浮动 */
+  padding: 20px;
+  background-color: rgba(174, 66, 66, 0.379);
+}
+
+.about-content {
+  margin: 0 20px 0 200px;
+  float: left;
+  width: 745px;
+  height: 315px;
+  padding: 20px;
+}
+
+.about-content h2 {
+  text-align: center;
+  font-family: "阿里妈妈东方大楷", sans-serif;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.about-content hr {
+  border: 1px solid #000;
+  margin: 10px 0;
+}
+
+.about-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.about-image {
+  float: left;
+  width: 35%;
+}
+
+.about-image img {
+  margin-right: 300px;
+  width: 500px;
+  height: 315px;
+}
+
+.ad-section {
+  width: 100%;
+  height: 370px;
+  clear: both;
+  padding: 20px;
+  background-color: var(--bg-primary);
+  text-align: center;
+}
+
+.ad-section p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.ad-section img {
+  margin-right: 100px;
+  width: 500px;
+  height: 315px;
+}

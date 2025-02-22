@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<!-- 在所有页面的 <html> 标签中添加 data-theme -->
+<html lang="zh-CN" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 引入 daisyUI 和 Tailwind -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.2/dist/full.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/aside.css">
+  <link rel="stylesheet" href="css/ticket.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 导航栏 -->
+  <div class="navbar bg-base-300">
+    <div class="flex-1">
+      <a class="btn btn-ghost text-xl" href="index.html">驰骋旅行</a>
+    </div>
+    <div class="flex-none gap-2">
+      <div class="flex-none">
+        <ul class="menu menu-horizontal px-1">
+          <label class="swap swap-rotate">
+            <!-- this hidden checkbox controls the state -->
+            <input type="checkbox" class="theme-controller" value="synthwave" />
+
+            <!-- sun icon -->
+            <svg class="swap-off h-10 w-10 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
+            </svg>
+
+            <!-- moon icon -->
+            <svg class="swap-on h-10 w-10 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
+            </svg>
+          </label>
+          <li><a href="index.html">首页</a></li>
+        </ul>
+      </div>
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+          <div class="w-10 rounded-full">
+            <img alt="Tailwind CSS Navbar component"
+              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+          </div>
+        </div>
+        <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+          <li>
+            <a class="justify-between">
+              我的
+              <span class="badge">new</span>
+            </a>
+          </li>
+          <li><a>设置</a></li>
+          <li><a>退出</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- 导航栏完成 -->
+  <!-- 主体部分 -->
+
+  <!-- 标题通栏部分 -->
+  <div class="title-bg">
+    <div class="titlebox">
+      <h2>机票订购</h2>
+      <h6>介绍各种最新机票信息、资讯要闻、景点攻略等</h6>
+    </div>
+  </div>
+  <!-- 标题通栏完成 -->
+
+  <div class="w">
+    <!-- 左边正文部分 -->
+    <article class="content">
+      <!-- 机票预订部分 -->
+      <div class="ticket-booking">
+        <h3 class="booking-title">机票预订</h3>
+        <div class="ticket-type">
+          <span class="type-row">
+            <span class="type-label">航班类型</span>
+            <span class="btn_type btn_active">单程</span>
+            <span class="btn_type">往返</span>
+          </span>
+        </div>
+        <div class="booking-form clearfix">
+          <div class="booking-form-item">
+            <span>出发城市</span>
+            <input type="text" placeholder="城市名">
+          </div>
+          <div class="booking-form-item">
+            <span>出发日期</span>
+            <input type="text" placeholder="时间/日期">
+          </div>
+          <div class="booking-form-item">
+            <span>到达城市</span>
+            <input type="text" placeholder="城市名">
+          </div>
+          <div class="booking-form-item">
+            <span>到达日期</span>
+            <input type="text" placeholder="时间/日期">
+          </div>
+          <button class="btn book-now">立即预订</button>
+        </div>
+
+        <!-- 最新机票信息部分 -->
+        <div class="latest-tickets clearfix">
+          <h3 class="latest-title">最新机票</h3>
+          <div class="ticket-type">
+            <span class="type-row">
+              <span class="type-label">热门城市</span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="btn_type btn_active">北京</span>
+              <span class="btn_type">上海</span>
+              <span class="btn_type">广州</span>
+              <span class="btn_type">深圳</span>
+              <span class="btn_type">成都</span>
+              <span class="btn_type">重庆</span>
+            </span>
+          </div>
+          <div class="ticket-list">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>路线</th>
+                  <th>日期</th>
+                  <th>价格</th>
+                  <th>税费</th>
+                  <th>餐食</th>
+                  <th>航班</th>
+                  <th>预定</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>成都-北京</td>
+                  <td>02-20</td>
+                  <td>￥1088</td>
+                  <td>￥100</td>
+                  <td>有</td>
+                  <td>四川航空</td>
+                  <td>
+                    <a href="#" class="btn">预定</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>成都-北京</td>
+                  <td>02-20</td>
+                  <td>￥1180</td>
+                  <td>￥100</td>
+                  <td>有</td>
+                  <td>四川航空</td>
+                  <td>
+                    <a href="#" class="btn">预定</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>成都-北京</td>
+                  <td>02-20</td>
+                  <td>￥1200</td>
+                  <td>￥100</td>
+                  <td>有</td>
+                  <td>四川航空</td>
+                  <td>
+                    <a href="#" class="btn">预定</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>成都-北京</td>
+                  <td>02-20</td>
+                  <td>￥1500</td>
+                  <td>￥100</td>
+                  <td>有</td>
+                  <td>四川航空</td>
+                  <td>
+                    <a href="#" class="btn">预定</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>成都-北京</td>
+                  <td>02-20</td>
+                  <td>￥1450</td>
+                  <td>￥100</td>
+                  <td>有</td>
+                  <td>四川航空</td>
+                  <td>
+                    <a href="#" class="btn">预定</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>成都-北京</td>
+                  <td>02-20</td>
+                  <td>￥1430</td>
+                  <td>￥100</td>
+                  <td>有</td>
+                  <td>四川航空</td>
+                  <td>
+                    <a href="#" class="btn">预定</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>成都-北京</td>
+                  <td>02-20</td>
+                  <td>￥1740</td>
+                  <td>￥100</td>
+                  <td>有</td>
+                  <td>四川航空</td>
+                  <td>
+                    <a href="#" class="btn">预定</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- 最新机票信息部分完成 -->
+      </div>
+      <!-- 分页导航部分 -->
+      <div class="join">
+        <button class="join-item btn btn-active">1</button>
+        <button class="join-item btn">2</button>
+        <button class="join-item btn">3</button>
+        <button class="join-item btn">4</button>
+      </div>
+      <!-- 分页导航部分完成 -->
+    </article>
+    <!-- 左边正文部分完成 -->
+
+    <!-- 右边侧边栏部分 -->
+    <aside class="sidebar">
+      <div class="aside-box">
+        <div class="recommend_box">
+          <h3>推荐项目</h3>
+          <div class="recommend_item">
+            <li><a href="#">北京(12)</a></li>
+            <li><a href="#">北京(12)</a></li>
+            <li><a href="#">北京(12)</a></li>
+            <li><a href="#">北京(12)</a></li>
+            <li><a href="#">北京(12)</a></li>
+            <li><a href="#">北京(12)</a></li>
+            <li><a href="#">上海(7)</a></li>
+            <li><a href="#">上海(7)</a></li>
+            <li><a href="#">上海(7)</a></li>
+            <li><a href="#">西安(4)</a></li>
+            <li><a href="#">西安(4)</a></li>
+            <li><a href="#">西安(4)</a></li>
+          </div>
+        </div>
+      </div>
+      <div class="treasure">
+        <h3>旅游百宝箱</h3>
+        <div class="treasure_item">
+          <a href="#">公交线路</a>
+          <a href="#">火车时刻</a>
+          <a href="#">机票购买</a>
+          <a href="#">打车贴士</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 右边侧边栏部分完成 -->
+  </div>
+  <!-- 主体部分完成 -->
+
+  <!-- 底部 -->
+  <footer class="footer bg-base-300 text-base-content">
+    <nav>
+      <h6 class="footer-title">service</h6>
+      <a class="link link-hover" href="#">品牌</a>
+      <a class="link link-hover" href="#">设计</a>
+      <a class="link link-hover" href="#">营销</a>
+      <a class="link link-hover" href="#">广告</a>
+    </nav>
+    <nav>
+      <h6 class="footer-title">驰骋旅行</h6>
+      <a class="link link-hover" href="about.html">关于我们</a>
+      <a class="link link-hover" href="#">联系我们</a>
+      <a class="link link-hover" href="#">加入我们</a>
+      <a class="link link-hover" href="#">新闻中心</a>
+    </nav>
+    <nav class="contact">
+      <h6 class="footer-title">联系我们</h6>
+      <div class="grid grid-flow-col gap-4">
+        <a>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+            <path
+              d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+            </path>
+          </svg>
+        </a>
+        <a>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+            <path
+              d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z">
+            </path>
+          </svg>
+        </a>
+        <a href="https://www.douyin.com">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1024 1024" class="fill-current">
+            <path
+              d="M937.4 423.9c-84 0-165.7-27.3-232.9-77.8v352.3c0 179.9-138.6 325.6-309.6 325.6S85.3 878.3 85.3 698.4c0-179.9 138.6-325.6 309.6-325.6 17.1 0 33.7 1.5 49.9 4.3v186.6c-15.5-6.1-32-9.2-48.6-9.2-76.3 0-138.2 65-138.2 145.3 0 80.2 61.9 145.3 138.2 145.3 76.2 0 138.1-65.1 138.1-145.3V0H707c0 134.5 103.7 243.5 231.6 243.5v180.3l-1.2 0.1">
+            </path>
+          </svg>
+        </a>
+      </div>
+      <div>
+        <p>Copyright © 2024 - 2025 驰骋旅行 版权所有</p>
+        <p>地址: 四川省成都市新都区新都大道8号</p>
+        <p>邮箱: chicheng@163.com</p>
+      </div>
+    </nav>
+  </footer>
+  <!-- 底部完成 -->
+
+  <!-- 引入js -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/aside.js"></script>
+  <script src="js/ticket.js"></script>
+  <script src="js/theme.js"></script>
+</body>
+
+</html>
