@@ -1,0 +1,71 @@
+.join {
+  margin: 30px auto;
+}
+
+.sidebar {
+  width: 300px;
+  float: right;
+  padding-bottom: 10px;
+}
+
+.aside-box {
+  border: 1px solid #ccc;
+  height: 300px;
+}
+
+.recommend_box h3 {
+  padding: 10px 20px;
+  height: 44px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  background-color: var(--item-bg);
+}
+
+.recommend_item li {
+  float: left;
+  width: 80px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  margin: 5px 10px;
+  background-color: var(--nav-bg);
+}
+
+.recommend_item li:nth-child(3n) {
+  margin-right: 0;
+}
+
+.treasure {
+  margin-top: 20px;
+  padding-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+.treasure_item {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+}
+
+.treasure h3 {
+  padding: 10px 20px;
+  height: 44px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  background-color: var(--item-bg);
+}
+
+.treasure_item a {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  margin-left: 20px;
+  margin-top: 10px;
+  padding-left: 20px;
+  border-radius: 10px;
+  background-color: var(--item-bg);
+}

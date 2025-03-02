@@ -1,0 +1,230 @@
+.login_container {
+  width: 100%;
+  height: 100px;
+  background-color: var(--bg-primary);
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.login_container img {
+  width: 90px;
+  height: 90px;
+  margin: 0 30px;
+}
+
+.login_container h2 {
+  font-family: "阿里妈妈东方大楷", sans-serif;
+  font-size: 28px;
+  color: #3c3c3c;
+  margin: 0;
+}
+
+.login_containation {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+}
+
+.header_login h3 {
+  display: block;
+  font-family: "冬青黑体";
+  font-size: 22px;
+  color: var(--text-primary);
+  background-color: var(--infos-bg);
+  padding: 10px 10px;
+}
+
+.header_login .register {
+  float: right;
+  font-size: 16px;
+  color: var(--text-primary);
+  padding: 5px 10px;
+}
+
+.header_login .register a {
+  color: #ff0000;
+}
+
+.content_login {
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.content_login .index_photo {
+  flex: 1;
+  min-width: 300px;
+  max-width: 60%;
+  height: 410px;
+}
+
+.content_login .index_photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.content_login .login_form {
+  flex: 1;
+  min-width: 300px;
+  max-width: 40%;
+}
+
+.login_form_title {
+  margin-bottom: 55px;
+}
+
+.content_login .login_form img {
+  width: 100%;
+  max-width: 435px;
+  height: auto;
+  max-height: 120px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+.content_login form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+.phone-input-error {
+  margin-top: 8px;
+  line-height: 20px;
+  text-align: center;
+  color: red;
+  font-size: 12px;
+  visibility: hidden;
+}
+
+.error-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  background: url(../upload/error.png) no-repeat;
+  margin-top: -2px;
+}
+
+.phone-input,
+.verify-input {
+  width: 100%;
+  height: 40px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.verify-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.verify-input {
+  flex: 1;
+}
+
+.verify-btn {
+  width: 120px;
+  height: 40px;
+  background: var(--bg-primary);
+  border: 1px solid #4CAF50;
+  color: #4CAF50;
+  border-radius: 4px;
+}
+
+.verify-btn:disabled {
+  cursor: not-allowed !important;
+  /* 添加 !important 来确保优先级 */
+  opacity: 0.7;
+  /* 可选：添加一些透明度表示禁用状态 */
+}
+
+.disabled-text {
+  border: 1px solid #ddd;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.verify-btn:hover {
+  background: #4CAF50;
+  color: #fff;
+}
+
+.login-btn {
+  width: 100%;
+  height: 40px;
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background: #45a049;
+}
+
+.forget-reg,
+.forget-pwd {
+  display: block;
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.forget-reg {
+  float: left;
+}
+
+.forget-pwd {
+  float: right;
+}
+
+.forget-pwd:hover {
+  color: #4CAF50;
+}
+
+.con_tainer {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
+  min-width: 320px;
+  height: auto;
+  background-color: var(--bg-primary);
+  margin-bottom: 90px;
+}
+
+/* 媒体查询 */
+@media screen and (max-width: 768px) {
+  .content_login {
+    flex-direction: column;
+  }
+
+  .content_login .index_photo,
+  .content_login .login_form {
+    max-width: 100%;
+  }
+
+  .content_login .login_form img {
+    max-width: 100% !important;
+  }
+
+  .content_login .index_photo {
+    height: 300px;
+  }
+}

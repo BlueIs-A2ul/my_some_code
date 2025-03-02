@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- 在所有页面的 <html> 标签中添加 data-theme -->
+<html lang="zh-CN" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 引入 daisyUI 和 Tailwind -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.2/dist/full.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/display.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 导航栏 -->
+  <div class="navbar text-white">
+    <div class="flex-1">
+      <img src="img/logo.png" alt="" style="width: 80px; height: 80px;">
+      <a class="btn btn-ghost text-xl" href="index.html">驰骋旅行</a>
+    </div>
+    <div class="flex-none">
+      <ul class="menu menu-horizontal px-1">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="login.html">登录</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- 导航栏完成 -->
+  <div class="container">
+    <button class="btn btn-outline" data-href="index.html">进入主页</button>
+  </div>
+
+  <!-- 引入js -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/display.js"></script>
+  <script src="js/theme.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,244 @@
+/* title-bg通栏样式 */
+/* min-width = 768px 使用这个css */
+.title-bg {
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  height: 300px;
+}
+
+.title-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* filter: blur(2px); */
+  background: url(../img/bg3.jpg) no-repeat;
+  background-size: 120% auto;
+  background-position: center 30%;
+}
+
+.titlebox {
+  color: rgb(255, 255, 255);
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.titlebox h2 {
+  font-size: 45px;
+  font-weight: 800;
+}
+
+.titlebox h6 {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.w {
+  width: 77.875rem;
+  height: 2440px;
+  margin: 30px auto;
+}
+
+.content {
+  float: left;
+  width: 57.5rem;
+  height: 600px;
+}
+
+.content .infos {
+  font-size: 16px;
+  background-color: var(--infos-bg);
+  height: 48px;
+  margin-bottom: 20px;
+}
+
+.content .info_left {
+  float: left;
+}
+
+.content .info_left li {
+  display: inline-block;
+  width: 6.25rem;
+  height: 48px;
+  text-align: center;
+  line-height: 50px;
+  overflow: hidden;
+}
+
+.content .info_left li.active {
+  border-top: 2px solid #458b00;
+  background-color: var(--nav-bg);
+}
+
+.content .info_right {
+  float: right;
+  cursor: pointer;
+  width: 6.25rem;
+  height: 48px;
+  background-color: var(--infos-bg);
+}
+
+.content .main_box {
+  width: 57.5rem;
+  height: 600px;
+}
+
+.content .card_box {
+  width: 57.5rem;
+  height: 600px;
+}
+
+.content .card_item {
+  width: 57.5rem;
+  height: 262px;
+  background-color: var(--nav-bg);
+  border: 1px solid #ccc;
+  margin-bottom: 30px;
+}
+
+.content .card_item img {
+  float: left;
+  width: 24.29rem;
+  height: 100%;
+}
+
+.content .conta_box {
+  position: relative;
+  float: left;
+  width: 33.125rem;
+  height: 100%;
+}
+
+.content .conta_box .db_box {
+  height: 210px;
+  margin-bottom: 10px;
+}
+
+.content .text_box {
+  float: left;
+  width: 19.925rem;
+  height: 210px;
+  padding: 20px;
+}
+
+.content .text_box h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.content .text_box p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.text_box .tag {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.text_box .tag li {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.text_box .tag .bg-opacity-10 {
+  display: inline-block;
+  width: 2.5rem;
+  text-align: center;
+  border: 1px solid #458b00;
+  border-radius: 5px;
+  color: #458b00;
+}
+
+.content .price_box {
+  float: right;
+  width: 13.125rem;
+  height: 210px;
+}
+
+.price_box .price_box_up {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 80px 0 10px 0;
+  text-align: center;
+}
+
+.price_box_up .after_price {
+  color: #ff8800;
+  font-size: 1.875rem;
+}
+
+.price_box_up .before_price {
+  color: #999;
+  font-size: 1rem;
+  text-decoration: line-through;
+}
+
+.price_box .price_box_down {
+  width: 12.5rem;
+  height: 50px;
+  line-height: 50px;
+  background-color: #ff8800;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.content .footer_box {
+  text-align: center;
+  width: 33.125rem;
+  height: 40px;
+  line-height: 20px;
+  padding: 10px 30px;
+  background-color: var(--nav-bg);
+  font-size: 16px;
+}
+
+.content .footer_box .time {
+  color: #458b00;
+}
+
+.content .account_box {
+  position: relative;
+  display: inline-block;
+  width: 0rem;
+  height: 0px;
+  background-color: transparent;
+}
+
+.account_box::before {
+  content: '';
+  position: absolute;
+  top: -330px;
+  left: 530px;
+  width: 5rem;
+  height: 80px;
+  border-left: 2.5rem solid transparent;
+  border-right: 2.5rem solid transparent;
+  border-bottom: 2.5rem solid #fff4d9;
+  transform: rotate(45deg);
+  transform-origin: top left;
+}
+
+.account_box span {
+  position: absolute;
+  top: -282px;
+  left: 520px;
+  transform: rotate(45deg);
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 50px;
+  color: #ff8d8c;
+  font-weight: bold;
+}

@@ -1,0 +1,165 @@
+/* title-bg通栏样式 */
+.title-bg {
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  height: 300px;
+}
+
+.title-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* filter: blur(2px); */
+  background: url(../img/scenery_bg1.jpg) no-repeat;
+  background-size: 120% auto;
+  background-position: center 30%;
+}
+
+.titlebox {
+  color: rgb(255, 255, 255);
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.titlebox h2 {
+  font-size: 45px;
+  font-weight: 800;
+}
+
+.titlebox h6 {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+/* 主容器响应式 */
+.w {
+  width: 90%;
+  max-width: 1246px;
+  min-width: 320px;
+  margin: 30px auto;
+  height: auto;
+  overflow: hidden;
+}
+
+/* 内容区域 */
+.content {
+  float: left;
+  width: calc(100% - 320px);
+  height: auto;
+}
+
+/* 侧边栏 */
+.sidebar {
+  width: 300px;
+  float: right;
+  padding-bottom: 10px;
+}
+
+/* 景点列表网格布局 */
+.scenery-list {
+  display: grid;
+  width: 100%;
+  max-width: 1246px;
+  min-width: 320px;
+  grid-template-columns: repeat(auto-fit, 415px);
+  gap: 20px 40px;
+  justify-content: center;
+  /* 居中对齐 */
+}
+
+.content h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+  color: #666;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #787878;
+}
+
+.scenery-item {
+  width: 430px;
+  /* 固定宽度 */
+  height: auto;
+  padding: 5px;
+  background-color: var(--col-bg-even-color);
+  border: 1px solid #000000;
+}
+
+.scenery-item img {
+  width: 100%;
+  height: 310px;
+  border: 1px solid #ccc;
+}
+
+.scenery-item-info {
+  text-align: center;
+  padding: 10px;
+}
+
+.scenery-item-info h4 {
+  font-size: 20px;
+  font-weight: 600;
+  border-bottom: 1px solid #3d0000;
+}
+
+/* 分页按钮居中 */
+.join {
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* 响应式布局 */
+@media screen and (max-width: 1024px) {
+  .content {
+    float: none;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title-bg::before {
+    background-size: cover;
+  }
+
+  .titlebox {
+    left: 50%;
+    text-align: center;
+  }
+
+  .titlebox h2 {
+    font-size: 32px;
+  }
+
+  .titlebox h6 {
+    font-size: 16px;
+  }
+}
+
+/* 适配小屏幕的卡片宽度 */
+@media screen and (max-width: 500px) {
+  .scenery-list {
+    grid-template-columns: 1fr;
+    /* 单列 */
+  }
+
+  .scenery-item {
+    width: 100%;
+    /* 宽度自适应 */
+    max-width: 455px;
+    /* 最大宽度限制 */
+  }
+}
+
+/* 侧边栏css样式*/
