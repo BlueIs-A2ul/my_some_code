@@ -68,7 +68,7 @@ void dfs(int u){
     }
 
     for(int i=1;i<=n;i++){
-        if(!st[i] ){
+        if(!st[i]){
             path[u]=i;
             st[i]=true;
             dfs(u+1);//迭代到下一层
