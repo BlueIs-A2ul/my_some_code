@@ -543,18 +543,701 @@ move(); // [0, 0]
 
 但是在实践中，只要可以，我们就一律不放置括号
 
+1. 变量声明语句不能使用圆括号
+2. 函数参数不能使用圆括号
+3. 赋值语句的模式
 
+可以使用圆括号的情况只有一种：赋值语句的非模式部分，可以使用圆括号
 
+```javascript
+[(b)] = [3]; // 正确
+({ p: (d) } = {}); // 正确
+[(parseInt.prop)] = [3]; // 正确
+```
 
+### 7.用途
 
+#### 1.交换变量的值
 
+```、javascript
+let x = 1;
+let y = 2;
 
+[x, y] = [y, x];
+```
 
+#### 2.从函数返回多个值
 
-## 3.字符串的扩展
+```javascript
+// 返回一个数组
+
+function example() {
+  return [1, 2, 3];
+}
+let [a, b, c] = example();
+
+// 返回一个对象
+
+function example() {
+  return {
+    foo: 1,
+    bar: 2
+  };
+}
+let { foo, bar } = example();
+```
+
+众所周知，JSreturn只能返回一个参数，所以我们采取数组和对象返回多个值，这个时候用解构来获取这些值就很方便
+
+#### 3.函数参数的定义
+
+```javascript
+// 参数是一组有次序的值
+function f([x, y, z]) { ... }
+f([1, 2, 3]);
+
+// 参数是一组无次序的值
+function f({ x, y, z }) {
+  console.log(`x=${x}, y=${y}, z=${z}`);
+}
+f({ x: 1, z: 4, y: 3 });//x=1, y=3, z=4
+```
+
+#### 4.提取JSON的数据
+
+```javascript
+let jsonData = {
+  id: 42,
+  status: "OK",
+  data: [867, 5309]
+};
+
+let { id, status, data: number } = jsonData;
+//这里同样可以乱序
+console.log(id, status, number);
+// 42, "OK", [867, 5309]
+```
+
+#### 5.函数的参数的默认值
+
+```javascript
+jQuery.ajax = function (url, {
+  async = true,
+  beforeSend = function () {},
+  cache = true,
+  complete = function () {},
+  crossDomain = false,
+  global = true,
+  // ... more config
+} = {}) {
+  // ... do stuff
+};
+```
+
+避免了大量的默认值写法
+
+#### 6.遍历MAP结构
+
+任何可迭代的对象，都可以用for of循环来遍历，map原生就是可迭代的，所以
+
+```javascript
+const map = new Map();
+map.set('first', 'hello');
+map.set('second', 'world');
+
+for (let [key, value] of map) {
+  console.log(key + " is " + value);
+}
+```
 
 ## 4. 字符串的扩展
+
+### 1.字符的Unicode表示
+
+ES6加强了对Unicode的支持，允许使用`\uxxxxx`形式来表示字符，xxxx表示字符的码点
+
+但是，这种表示法只限于码点在`\u0000`~`\uFFFF`之间的字符。超出这个范围的字符，必须用两个双字节的形式表示。
+
+***
+
+ES6 对这一点做出了改进，只要将码点放入大括号，就能正确解读该字符。
+
+```javascript
+"\u{20BB7}"
+// "𠮷"
+
+"\u{41}\u{42}\u{43}"
+// "ABC"
+
+let hello = 123;
+hell\u{6F} // 123
+
+'\u{1F680}' === '\uD83D\uDE80'
+// true
+```
+
+
+
+有了这种表示法之后，JavaScript 共有 6 种方法可以表示一个字符。
+
+```javascript
+'\z' === 'z'  // true
+'\172' === 'z' // true
+'\x7A' === 'z' // true
+'\u007A' === 'z' // true
+'\u{7A}' === 'z' // true
+```
+
+### 2.字符串的遍历
+
+根据原型链，字符串自然是一个对象，就可以迭代。即使用`for of`方法，这个比起一般的for()方法好在哪里呢？
+
+这个方法可以识别大于`0xFFFF`的码点，传统的`for`循环无法识别这样的码点。
+
+### 3.字符的转义
+
+但是，JavaScript 规定有5个字符，不能在字符串里面直接使用，只能使用转义形式。
+
+- U+005C：反斜杠（reverse solidus)
+- U+000D：回车（carriage return）
+- U+2028：行分隔符（line separator）
+- U+2029：段分隔符（paragraph separator）
+- U+000A：换行符（line feed）
+
+举例来说，字符串里面不能直接包含反斜杠，一定要转义写成`\\`或者`\u005c`。
+
+### 4.JSON.stringify()的改造
+
+根据标准，JSON 数据必须是 UTF-8 编码。但是，现在的`JSON.stringify()`方法有可能返回不符合 UTF-8 标准的字符串。
+
+为了确保返回的是合法的 UTF-8 字符，ES2019改变了`JSON.stringify()`的行为。如果遇到`0xD800`到`0xDFFF`之间的单个码点，或者不存在的配对形式，它会返回转义字符串，留给应用自己决定下一步的处理。
+
+```javascript
+JSON.stringify('\u{D834}') // ""\\uD834""
+JSON.stringify('\uDF06\uD834') // ""\\udf06\\ud834""
+```
+
+### 5.模板字符串
+
+为了避免一些写法上的不便，ES6引入了模板字符串
+
+**模板字符串**（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。
+
+为了避免歧义，正常使用反引号要使用反斜杠转义
+
+并且如果使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中。
+
+如果大括号中的值不是字符串，将按照一般的规则转为字符串。比如，大括号中是一个对象，将默认调用对象的`toString`方法。
+
+
+
+如果需要引用模板字符串本身，在需要时执行，可以写成函数。
+
+```javascript
+let func = (name) => `Hello ${name}!`;
+func('Jack') // "Hello Jack!"
+```
+
+上面代码中，模板字符串写成了一个函数的返回值。执行这个函数，就相当于执行这个模板字符串了。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 5. 字符串的新增方法
+
+### 1.String.fromCodePoint()
+
+ES5 提供`String.fromCharCode()`方法，用于从 Unicode 码点返回对应字符，但是这个方法不能识别码点大于`0xFFFF`的字符。
+
+为此ES6提供了String.formCodePoint()方法
+
+在作用上，正好与下面的`codePointAt()`方法相反。
+
+```javascript
+String.fromCodePoint(0x20BB7)
+// "𠮷"
+String.fromCodePoint(0x78, 0x1f680, 0x79) === 'x\uD83D\uDE80y'
+// true
+```
+
+### 2.String.raw()
+
+ES6 还为原生的 String 对象，提供了一个`raw()`方法。该方法返回一个**斜杠都被转义（即斜杠前面再加一个斜杠）的字符串**，往往用于模板字符串的处理方法。
+
+但是如果本身字符串的斜杠已经被转义，也会再次进行转义。可以说是把\替换成\\\
+
+```javascript
+String.raw`\index\om`
+//=>`\\index\\om`
+```
+
+
+
+### 3.实例方法includes(),startsWith(),endsWith()
+
+传统上，JavaScript 只有`indexOf`方法，可以用来确定一个字符串是否包含在另一个字符串中。ES6 又提供了三种新方法。
+
+- **includes()**：返回布尔值，表示是否找到了参数字符串。
+- **startsWith()**：返回布尔值，表示参数字符串是否在原字符串的头部。
+- **endsWith()**：返回布尔值，表示参数字符串是否在原字符串的尾部。
+
+```javascript
+let s = 'Hello world!';
+
+s.startsWith('Hello') // true
+s.endsWith('!') // true
+s.includes('o') // true
+```
+
+这三个方法都支持第二个参数，表示开始搜索的位置。
+
+```javascript
+let s = 'Hello world!';
+
+s.startsWith('world', 6) // true
+s.endsWith('Hello', 5) // true
+s.includes('Hello', 6) // false
+```
+
+### 4.实例方法repeat()
+
+`repeat`方法返回一个新字符串，表示将原字符串重复`n`次。
+
+```javascript
+'x'.repeat(3) // "xxx"
+'hello'.repeat(2) // "hellohello"
+'na'.repeat(0) // ""
+```
+
+参数如果是小数，会被取整。
+
+```javascript
+'na'.repeat(2.9) // "nana"
+```
+
+如果`repeat`的参数是负数或者`Infinity`，会报错。
+
+```javascript
+'na'.repeat(Infinity)
+// RangeError
+'na'.repeat(-1)
+// RangeError
+```
+
+但是，如果参数是 0 到-1 之间的小数，则等同于 0，这是因为会先进行取整运算。0 到-1 之间的小数，取整以后等于`-0`，`repeat`视同为 0。
+
+```javascript
+'na'.repeat(-0.9) // ""
+```
+
+参数`NaN`等同于 0。
+
+```javascript
+'na'.repeat(NaN) // ""
+```
+
+如果`repeat`的参数是字符串，则会先转换成数字。
+
+```javascript
+'na'.repeat('na') // ""
+'na'.repeat('3') // "nanana"
+```
+
+### 5.实例方法padStart(),padEnd()
+
+ES2017 引入了字符串补全长度的功能。如果某个字符串不够指定长度，会在头部或尾部补全。`padStart()`用于头部补全，`padEnd()`用于尾部补全。
+
+```javascript
+'x'.padStart(5, 'ab') // 'ababx'
+'x'.padStart(4, 'ab') // 'abax'
+
+'x'.padEnd(5, 'ab') // 'xabab'
+'x'.padEnd(4, 'ab') // 'xaba'
+```
+
+- 长度到达则不补全
+- 长度之和超过，只补全部分
+- 省略第二个参数时，默认空格补全
+
+
+
+### 6.实例方法trimStart(),trimEnd()
+
+`trimStart()`消除字符串头部的空格，`trimEnd()`消除尾部的空格。它们返回的都是新字符串，不会修改原始字符串。(即是纯函数)
+
+### 7.实例方法replaceAll()
+
+以前的replace方法只能替换第一个匹配，后面出现了replaceAll就可以替换所有匹配了，这个方法也是返回一个新的字符串
+
+```javascript
+// $& 表示匹配的字符串，即`b`本身
+// 所以返回结果与原字符串一致
+'abbc'.replaceAll('b', '$&')
+// 'abbc'
+
+// $` 表示匹配结果之前的字符串
+// 对于第一个`b`，$` 指代`a`
+// 对于第二个`b`，$` 指代`ab`
+'abbc'.replaceAll('b', '$`')
+// 'aaabc'
+
+// $' 表示匹配结果之后的字符串
+// 对于第一个`b`，$' 指代`bc`
+// 对于第二个`b`，$' 指代`c`
+'abbc'.replaceAll('b', `$'`)
+// 'abccc'
+
+// $1 表示正则表达式的第一个组匹配，指代`ab`
+// $2 表示正则表达式的第二个组匹配，指代`bc`
+'abbc'.replaceAll(/(ab)(bc)/g, '$2$1')
+// 'bcab'
+
+// $$ 指代 $
+'abc'.replaceAll('b', '$$')
+// 'a$c'
+```
+
+### 8.实例方法at()
+
+索引返回指定字符，超出范围返回undefined
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 6. 正则的扩展
 
 ## 7. 数值的扩展
